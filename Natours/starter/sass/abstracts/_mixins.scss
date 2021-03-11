@@ -1,0 +1,33 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint < 112.5em {
+    @media only screen and (max-width: $breakpoint) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+@mixin transformback {
+  transform: skewY(-7deg);
+  & > * {
+    transform: skewY(7deg);
+  }
+}
